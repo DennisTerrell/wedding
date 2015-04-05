@@ -2,22 +2,30 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script type="text/javascript" src="/path/to/jquery.countdown.js"></script>
-		<link rel="stylesheet" href="wedding.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="/scripts/jquery.plugin.js"></script>
+		<script src="/scripts/jquery.countdown.js"></script>
+		<link href='http://fonts.googleapis.com/css?family=Poiret+One&subset=latin,latin-ext,cyrillic' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" href="/styles/wedding.css">
 		<script>
 		$(function() {
-    		$('.yourCountdownContainer').countdown({
-        	date: "September 7, 2015 15:00:00"
-    		});
+    		var weddingDay = new Date();
+			weddingDay = new Date(weddingDay.getFullYear() + 0, 10 - 1, 10);
+			$('#defaultCountdown').countdown({until: weddingDay});
+			$('#year').text(weddingDay.getFullYear());
 		});
+		//var lacey = document.getElementsByTagName("video")[0];
+		//lacey.autoplay();
 		</script>
 	</head>
 	<body>
-		<div class="main-wrapper">
-			<h1>The clock is ticking</h1>
-			<p>countdown timer here</p>
-			<a href="">RSVP</a>
+		<video class="section-full" poster="/images/lacey-poster.jpg" autoplay loop="true">
+			<source src="/images/lacey-background.mp4">
+			<source src="/images/lacey-background.webm">
+		</video>
+		<div class="headline-wrapper">
+			<h1>10 . 10 . 2015</h1>
+			<div id="defaultCountdown"></div>
 		</div>
 	</body>
 </html>
